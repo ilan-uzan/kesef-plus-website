@@ -8,6 +8,16 @@ const SUPABASE_ANON_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBh
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  // ─── 0. MOBILE NAV TOGGLE ─────────────────────────────────
+  const mobileMenuBtn = document.querySelector('.ag-mobile-menu-btn');
+  const navLinks = document.querySelector('.ag-nav-links');
+  if (mobileMenuBtn && navLinks) {
+    mobileMenuBtn.addEventListener('click', () => {
+      const isOpen = navLinks.classList.toggle('mobile-open');
+      mobileMenuBtn.innerHTML = isOpen ? '✕' : '☰';
+    });
+  }
+
   // ─── 1. INTERACTIVE GLOW ORB ──────────────────────────────
   const orb = document.getElementById('glow-orb');
   if (orb) {
