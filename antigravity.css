@@ -66,11 +66,8 @@ body {
   flex-shrink: 0;
 }
 .ag-logo-img {
-  height: 28px; width: auto; transform: scale(3.2); transform-origin: left center;
+  height: 28px; width: auto;
   transition: transform 0.3s ease;
-}
-@media (max-width: 768px) {
-  .ag-logo-img { transform: scale(2.0); }
 }
 .ag-nav-links { display: flex; gap: 28px; list-style: none; }
 @media (max-width: 768px) {
