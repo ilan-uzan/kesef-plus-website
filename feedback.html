@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Feedback — Kesef Plus</title>
+  <meta name="description" content="Send us feedback on Kesef Studio, Kode, or Demo. Feature requests, bug reports, and suggestions welcome." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="antigravity.css" />
+</head>
+<body>
+
+  <div id="glow-container"><div id="glow-orb"></div></div>
+
+  <nav class="ag-nav">
+    <a href="index.html" class="ag-nav-logo" style="display:flex; align-items:center;">
+      <img src="assets/logo-kesef-plus.png" alt="Kesef Plus" class="ag-logo-img" />
+    </a>
+    <ul class="ag-nav-links">
+      <li><a href="studio.html">Studio</a></li>
+      <li><a href="kode.html">Kode</a></li>
+      <li><a href="demo.html">Demo</a></li>
+      <li><a href="feedback.html" class="active">Feedback</a></li>
+      <li><a href="download.html" class="ag-nav-pill">Download</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section class="ag-hero" style="min-height: 60vh; padding-top: 140px;">
+      <div class="ag-hero-content" style="max-width: 640px;">
+        <h1 class="ag-headline-md" style="text-align: center;">We build what<br>you need.</h1>
+        <p class="ag-body mx-auto" style="text-align: center; margin-bottom: 48px;">
+          Feature requests, bug reports, or ideas — every message shapes the product. Select your app and tell us what's on your mind.
+        </p>
+
+        <form id="feedback-form" class="ag-feedback-form">
+          <div class="ag-field">
+            <label for="fb-product">Product</label>
+            <select name="product" id="fb-product" class="ag-select" required>
+              <option value="studio">Kesef Studio</option>
+              <option value="kode">Kesef Kode</option>
+              <option value="demo">Kesef Demo</option>
+              <option value="general">General / Website</option>
+            </select>
+          </div>
+          <div class="ag-field">
+            <label for="fb-category">Category</label>
+            <select name="category" id="fb-category" class="ag-select" required>
+              <option value="feature_request">Feature Request</option>
+              <option value="bug_report">Bug Report</option>
+              <option value="documentation">Documentation</option>
+              <option value="general">General Feedback</option>
+            </select>
+          </div>
+          <div class="ag-field">
+            <label for="fb-message">Your feedback</label>
+            <textarea name="message" id="fb-message" class="ag-textarea" placeholder="Tell us what you'd like to see..." required></textarea>
+          </div>
+          <div class="ag-field">
+            <label for="fb-email">Email (optional — if you'd like a response)</label>
+            <input type="email" name="email" id="fb-email" class="ag-input" placeholder="you@email.com" />
+          </div>
+          <button type="submit" class="ag-btn" style="width: 100%;">Submit Feedback</button>
+          <div class="ag-form-success" style="text-align: center; margin-top: 16px;">Thank you! Your feedback has been received.</div>
+          <div class="ag-form-error" style="text-align: center;"></div>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <script src="antigravity-app.js" defer></script>
+</body>
+</html>

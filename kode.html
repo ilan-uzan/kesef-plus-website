@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kesef Kode — The Agentic IDE for Apple Platforms</title>
+  <meta name="description" content="Kesef Kode: A macOS AI development environment built for Swift. Local LLM inference, RAG-based code generation, and direct Xcode integration." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="antigravity.css" />
+</head>
+<body>
+
+  <div id="glow-container"><div id="glow-orb"></div></div>
+
+  <!-- ─── NAV ──────────────────────────────────────────────── -->
+  <nav class="ag-nav">
+    <a href="index.html" class="ag-nav-logo" style="display:flex; align-items:center;">
+      <img src="assets/logo-kesef-plus.png" alt="Kesef Plus" class="ag-logo-img" />
+    </a>
+    <ul class="ag-nav-links">
+      <li><a href="studio.html">Studio</a></li>
+      <li><a href="kode.html" class="active">Kode</a></li>
+      <li><a href="demo.html">Demo</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="download.html" class="ag-nav-pill">Download</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <!-- ─── HERO ──────────────────────────────────────────── -->
+    <section class="ag-hero">
+      <div class="ag-hero-content">
+        <div class="ag-badge">macOS · Apple Silicon</div>
+        <h1 class="ag-headline ag-shimmer-text">Kesef Kode.</h1>
+        <h2 class="ag-subheadline mx-auto">The agentic IDE that understands your entire Apple project context.</h2>
+        <a href="download.html" class="ag-btn" style="margin-top: 32px; display: inline-flex; align-items: center; text-decoration: none;">
+          <svg viewBox="0 0 384 512" width="16" height="16" fill="currentColor" style="margin-right: 8px;"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+          Download for macOS
+        </a>
+        
+        <div class="ag-placeholder ag-placeholder-dark ag-placeholder-lg" style="max-width: 700px; margin: 60px auto 0;">
+          [ Kesef Kode App Icon — 512×512 ]
+        </div>
+      </div>
+    </section>
+
+    <!-- ─── FEATURES (LIGHT LAYER) ────────────────────────── -->
+    <div class="ag-section-wrapper">
+      <div class="ag-layer">
+        <div class="ag-container">
+
+          <span class="ag-label" style="color: var(--ag-text-dark-secondary);">Core Capabilities</span>
+          <h2 class="ag-headline-md" style="color: var(--ag-text-dark-primary);">Built for Swift.<br>Powered by your hardware.</h2>
+
+          <div class="ag-bento-grid">
+            <!-- Featured: Agentic IDE -->
+            <div class="ag-bento-card ag-bento-featured reveal">
+              <div class="ag-badge ag-badge-dark" style="color:#fff; background:rgba(255,255,255,0.1); border-color:rgba(255,255,255,0.15); width:fit-content; margin-bottom:20px;">Flagship</div>
+              <h3 class="ag-card-title">Agentic Code Generation</h3>
+              <p class="ag-card-desc">A local LLM trained on 1M+ Apple Developer documentation pages. It doesn't just autocomplete — it understands SwiftUI, SwiftData, Combine, and every Apple framework deeply enough to write production-grade code.</p>
+              <div class="ag-placeholder ag-placeholder-dark" style="margin-top: 28px;">
+                [ Screenshot: Kode IDE — Editor with AI suggestion panel ]
+              </div>
+            </div>
+
+            <!-- Half: RAG -->
+            <div class="ag-bento-card ag-bento-half reveal stagger-1">
+              <h3 class="ag-card-title" style="font-size: 22px;">RAG Ground Truth</h3>
+              <p class="ag-card-desc">Retrieval-Augmented Generation against live Apple Frameworks. Kesef Kode doesn't hallucinate — it verifies every suggestion against the actual SDK.</p>
+              <div class="ag-placeholder" style="margin-top: 20px;">
+                [ Screenshot: RAG context panel showing SwiftUI docs ]
+              </div>
+            </div>
+
+            <!-- Half: Xcode -->
+            <div class="ag-bento-card ag-bento-half reveal stagger-2">
+              <h3 class="ag-card-title" style="font-size: 22px;">Direct Xcode Integration</h3>
+              <p class="ag-card-desc">From structured JSON spec to raw .swift files. Kesef Kode generates, Xcode builds and runs. Side by side, no switching.</p>
+              <div class="ag-placeholder" style="margin-top: 20px;">
+                [ Screenshot: Xcode + Kode split screen ]
+              </div>
+            </div>
+          </div>
+
+          <!-- Tech Foundation -->
+          <div class="ag-tech-section reveal">
+            <div class="ag-terminal-header">
+              <div class="ag-dot red"></div>
+              <div class="ag-dot yellow"></div>
+              <div class="ag-dot green"></div>
+            </div>
+            <h3 style="font-size: 24px; font-weight: 600; margin-bottom: 40px; letter-spacing: -0.02em; font-family: var(--font-sans);">Powered by extreme local inference.</h3>
+            <div class="ag-tech-grid">
+              <div class="ag-tech-item">
+                <h4>01 // NEURAL ENGINE</h4>
+                <p>Hardware-accelerated matrix multiplication on M-Series and A-Series chips. Run 7B–13B parameter code models entirely offline.</p>
+              </div>
+              <div class="ag-tech-item">
+                <h4>02 // MLX FRAMEWORK</h4>
+                <p>Apple's MLX array framework for blazing-fast inference. Optimized specifically for unified memory architecture on Apple Silicon.</p>
+              </div>
+              <div class="ag-tech-item">
+                <h4>03 // VISION AI</h4>
+                <p>Drop in a UI mockup screenshot. The local Vision model translates it into fully working SwiftUI code — pixel perfect.</p>
+              </div>
+            </div>
+          </div>
+
+          <!-- Code Split -->
+          <div class="ag-code-split reveal" style="margin-top: 80px;">
+            <div class="ag-code-panel">
+              <div class="ag-code-panel-header">Kesef Studio Spec (JSON)</div>
+              {<br/>
+              &nbsp;&nbsp;<span class="st">"view_name"</span>: <span class="st">"ProfileView"</span>,<br/>
+              &nbsp;&nbsp;<span class="st">"components"</span>: [<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;{<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="st">"type"</span>: <span class="st">"VStack"</span>,<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="st">"children"</span>: [<span class="st">"Avatar"</span>, <span class="st">"Bio"</span>]<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;}<br/>
+              &nbsp;&nbsp;]<br/>
+              }
+            </div>
+            <div class="ag-code-panel">
+              <div class="ag-code-panel-header">Kode Output (SwiftUI)</div>
+              <span class="kw">import</span> <span class="ty">SwiftUI</span><br/><br/>
+              <span class="kw">struct</span> <span class="ty">ProfileView</span>: <span class="ty">View</span> {<br/>
+              &nbsp;&nbsp;<span class="kw">var</span> body: <span class="kw">some</span> <span class="ty">View</span> {<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;<span class="ty">VStack</span>(spacing: 24) {<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ty">Image</span>(<span class="st">"avatar"</span>)<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.clipShape(<span class="ty">Circle</span>())<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="ty">Text</span>(<span class="st">"Bio"</span>)<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;.font(.body)<br/>
+              &nbsp;&nbsp;&nbsp;&nbsp;}.padding()<br/>
+              &nbsp;&nbsp;}<br/>
+              }
+            </div>
+          </div>
+
+          <!-- Early Access -->
+          <div class="ag-early-access reveal">
+            <h3>Get early access.</h3>
+            <p>Kesef Kode is in private beta for macOS. Drop your email to be first in line.</p>
+            <form data-early-access="kode" class="ag-form-row">
+              <input type="email" class="ag-input" placeholder="you@email.com" required />
+              <button type="submit" class="ag-btn">Join Waitlist</button>
+            </form>
+            <div class="ag-form-success">You're on the list. We'll be in touch.</div>
+            <div class="ag-form-error"></div>
+          </div>
+
+          <!-- Resources -->
+          <div class="ag-resource-grid reveal" style="margin-top: 80px;">
+            <a href="docs-kode.html" class="ag-resource-card">
+              <div class="ag-resource-icon" style="background: rgba(0,122,255,0.1); color: var(--ag-blue);">📖</div>
+              <h4>Documentation</h4>
+              <p>Learn how to get the most out of Kesef Kode — from setup to advanced workflows.</p>
+            </a>
+            <a href="feedback.html" class="ag-resource-card">
+              <div class="ag-resource-icon" style="background: rgba(52,199,89,0.1); color: var(--ag-green);">💬</div>
+              <h4>Send Feedback</h4>
+              <p>Feature requests, bug reports, or just say hello. We read every message.</p>
+            </a>
+          </div>
+
+          <!-- Footer -->
+          <footer class="ag-footer">
+            <div class="ag-footer-grid">
+              <div class="ag-footer-col ag-footer-brand">
+                <h5 style="text-transform: none; letter-spacing: -0.02em; font-size: 16px; font-family: var(--font-mono);">Kesef Plus.</h5>
+                <p>The full-stack ecosystem for Apple developers.</p>
+              </div>
+              <div class="ag-footer-col">
+                <h5>Ecosystem</h5>
+                <a href="studio.html">Kesef Studio</a>
+                <a href="kode.html">Kesef Kode</a>
+                <a href="demo.html">Kesef Demo</a>
+              </div>
+              <div class="ag-footer-col">
+                <h5>Resources</h5>
+                <a href="docs-studio.html">Docs: Studio</a>
+                <a href="docs-kode.html">Docs: Kode</a>
+                <a href="docs-demo.html">Docs: Demo</a>
+              </div>
+              <div class="ag-footer-col">
+                <h5>Legal</h5>
+                <a href="privacy-policy.html">Privacy Policy</a>
+                <a href="terms-of-service.html">Terms of Service</a>
+                <a href="feedback.html">Feedback</a>
+              </div>
+            </div>
+            <div class="ag-footer-bottom">Copyright © 2026 Kesef Plus. All rights reserved.</div>
+          </footer>
+
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <script src="antigravity-app.js" defer></script>
+</body>
+</html>

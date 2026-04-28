@@ -1,0 +1,603 @@
+/* ─── KESEF DEMO — Page-specific Styles ───────────────────── */
+/* Apple iMac-inspired: large centered headlines, vibrant gradients,
+   generous whitespace, cinematic product presentation */
+
+/* ─── HERO ─────────────────────────────────────────────────── */
+.demo-hero {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Ambient glow behind hero */
+.demo-hero::before {
+  content: '';
+  position: absolute;
+  top: -200px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 1200px;
+  height: 1200px;
+  border-radius: 50%;
+  background: radial-gradient(circle,
+    rgba(255, 69, 58, 0.06) 0%,
+    rgba(255, 159, 10, 0.04) 30%,
+    rgba(0, 113, 227, 0.03) 60%,
+    transparent 70%
+  );
+  pointer-events: none;
+  z-index: 0;
+  animation: demo-glow-pulse 12s ease-in-out infinite alternate;
+}
+
+@keyframes demo-glow-pulse {
+  from { transform: translateX(-50%) scale(1); opacity: 0.6; }
+  to   { transform: translateX(-50%) scale(1.15); opacity: 1; }
+}
+
+.demo-hero-title {
+  color: var(--apple-text);
+}
+
+.demo-gradient-word {
+  background: linear-gradient(135deg,
+    #ff6b6b 0%,
+    #ff9f0a 25%,
+    #ffd60a 50%,
+    #30d158 75%,
+    #0071e3 100%
+  );
+  background-size: 200% 100%;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: demo-gradient-shift 6s ease-in-out infinite;
+}
+
+@keyframes demo-gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+/* ─── HERO IPHONE VISUAL ──────────────────────────────────── */
+.demo-hero-visual {
+  position: relative;
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 560px;
+}
+
+.demo-iphone-frame {
+  position: relative;
+  width: 300px;
+  background: #1c1c1e;
+  border-radius: 40px;
+  padding: 12px;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.1),
+    0 60px 120px rgba(0,0,0,0.35),
+    0 20px 60px rgba(0,0,0,0.2),
+    inset 0 0 0 1px rgba(255,255,255,0.05);
+  animation: demo-phone-float 6s ease-in-out infinite;
+}
+
+@keyframes demo-phone-float {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-12px); }
+}
+
+.demo-iphone-notch {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 28px;
+  background: #000;
+  border-radius: 0 0 18px 18px;
+  z-index: 10;
+}
+
+.demo-iphone-screen {
+  width: 100%;
+  border-radius: 28px;
+  display: block;
+}
+
+/* Floating Badges */
+.demo-float-badge {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 20px;
+  background: var(--apple-card-bg);
+  border: 1px solid var(--apple-card-border);
+  border-radius: 16px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--apple-text);
+  box-shadow: 0 12px 40px rgba(0,0,0,0.08);
+  white-space: nowrap;
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  z-index: 5;
+}
+
+.demo-float-badge svg {
+  color: var(--apple-btn-primary);
+  flex-shrink: 0;
+}
+
+.demo-float-1 {
+  top: 60px;
+  right: calc(50% + 200px);
+  animation: demo-badge-float-1 5s ease-in-out 0.5s infinite;
+}
+
+.demo-float-2 {
+  top: 200px;
+  left: calc(50% + 200px);
+  animation: demo-badge-float-2 6s ease-in-out 1s infinite;
+}
+
+.demo-float-3 {
+  bottom: 80px;
+  right: calc(50% + 180px);
+  animation: demo-badge-float-3 5.5s ease-in-out 1.5s infinite;
+}
+
+@keyframes demo-badge-float-1 {
+  0%, 100% { transform: translateY(0) rotate(-1deg); }
+  50%      { transform: translateY(-8px) rotate(1deg); }
+}
+@keyframes demo-badge-float-2 {
+  0%, 100% { transform: translateY(0) rotate(1deg); }
+  50%      { transform: translateY(-10px) rotate(-1deg); }
+}
+@keyframes demo-badge-float-3 {
+  0%, 100% { transform: translateY(0) rotate(0.5deg); }
+  50%      { transform: translateY(-6px) rotate(-0.5deg); }
+}
+
+/* ─── SECTION EYEBROW ──────────────────────────────────────── */
+.demo-section-eyebrow {
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--apple-btn-primary);
+  margin-bottom: 16px;
+}
+
+/* ─── BENTO FEATURE GRID ──────────────────────────────────── */
+.demo-bento-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-auto-rows: 280px;
+  gap: 20px;
+  margin-top: 60px;
+}
+
+.demo-bento-card {
+  background: var(--apple-card-bg);
+  border: 1px solid var(--apple-card-border);
+  border-radius: 28px;
+  padding: 32px;
+  text-align: left;
+  overflow: hidden;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.04);
+  transition: transform 0.35s cubic-bezier(0.22,1,0.36,1), box-shadow 0.35s ease;
+}
+
+.demo-bento-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 24px 60px rgba(0,0,0,0.08);
+}
+
+.demo-bento-large {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+
+.demo-bento-tall {
+  grid-column: span 1;
+  grid-row: span 2;
+}
+
+.demo-bento-wide {
+  grid-column: span 2;
+}
+
+.demo-bento-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--apple-bg-alt);
+  border: 1px solid var(--apple-card-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  color: var(--apple-btn-primary);
+  flex-shrink: 0;
+}
+
+.demo-bento-card h3 {
+  font-size: 22px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--apple-text);
+  margin: 0 0 8px 0;
+}
+
+.demo-bento-card p {
+  font-size: 15px;
+  color: var(--apple-text-light);
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ─── TIMELINE ANIMATION ──────────────────────────────────── */
+.demo-bento-visual {
+  flex: 1;
+  display: flex;
+  align-items: flex-end;
+  margin-top: 24px;
+}
+
+.demo-timeline {
+  width: 100%;
+  position: relative;
+  height: 100px;
+}
+
+.demo-timeline-track {
+  display: flex;
+  gap: 4px;
+  align-items: flex-end;
+  height: 60px;
+  padding: 8px;
+  background: rgba(0,0,0,0.04);
+  border-radius: 12px;
+  border: 1px solid var(--apple-card-border);
+}
+
+.demo-timeline-clip {
+  flex: 1;
+  border-radius: 6px;
+  height: 44px;
+  transition: transform 0.3s ease;
+}
+
+.clip-1 { background: linear-gradient(135deg, #ff6b6b, #ff9f0a); }
+.clip-2 { background: linear-gradient(135deg, #ff9f0a, #ffd60a); }
+.clip-3 { background: linear-gradient(135deg, #30d158, #34aadc); }
+.clip-4 { background: linear-gradient(135deg, #0071e3, #5e5ce6); }
+
+.demo-bento-card:hover .demo-timeline-clip {
+  transform: scaleY(1.1);
+}
+
+.demo-timeline-playhead {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 76px;
+  background: #ff3b30;
+  border-radius: 2px;
+  animation: demo-playhead-scan 4s ease-in-out infinite;
+  box-shadow: 0 0 8px rgba(255,59,48,0.5);
+}
+
+@keyframes demo-playhead-scan {
+  0%   { left: 8px; }
+  100% { left: calc(100% - 10px); }
+}
+
+/* ─── TEMPLATE STACK ──────────────────────────────────────── */
+.demo-template-stack {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+  position: relative;
+  padding-top: 20px;
+}
+
+.demo-template {
+  width: 80%;
+  height: 80px;
+  border-radius: 14px;
+  position: absolute;
+  transition: transform 0.4s cubic-bezier(0.22,1,0.36,1);
+}
+
+.t-1 {
+  background: linear-gradient(135deg, #1c1c1e, #2d2d2f);
+  border: 1px solid rgba(255,255,255,0.1);
+  bottom: 0;
+  z-index: 3;
+}
+.t-2 {
+  background: linear-gradient(135deg, #f5f5f7, #e8e8ed);
+  border: 1px solid rgba(0,0,0,0.08);
+  bottom: 12px;
+  z-index: 2;
+  transform: scale(0.94);
+  opacity: 0.7;
+}
+.t-3 {
+  background: linear-gradient(135deg, #0071e3, #34aadc);
+  bottom: 22px;
+  z-index: 1;
+  transform: scale(0.88);
+  opacity: 0.4;
+}
+
+.demo-bento-card:hover .t-1 { transform: translateY(-8px); }
+.demo-bento-card:hover .t-2 { transform: scale(0.94) translateY(-4px); }
+.demo-bento-card:hover .t-3 { transform: scale(0.88) translateY(-2px); }
+
+/* ─── WORKFLOW STEPS ──────────────────────────────────────── */
+.demo-workflow-section {
+  position: relative;
+}
+
+.demo-steps {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0;
+  margin-top: 80px;
+  flex-wrap: wrap;
+}
+
+.demo-step {
+  flex: 1;
+  max-width: 280px;
+  min-width: 220px;
+  text-align: center;
+  position: relative;
+  padding: 0 20px;
+}
+
+.demo-step-number {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: var(--apple-btn-primary);
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 20px;
+}
+
+.demo-step-icon {
+  width: 72px;
+  height: 72px;
+  border-radius: 20px;
+  background: var(--apple-bg-alt);
+  border: 1px solid var(--apple-card-border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 24px;
+  color: var(--apple-text);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.demo-step:hover .demo-step-icon {
+  transform: scale(1.08);
+  background: rgba(0,113,227,0.08);
+}
+
+.demo-step h3 {
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: -0.015em;
+  color: var(--apple-text);
+  margin: 0 0 8px 0;
+}
+
+.demo-step p {
+  font-size: 15px;
+  color: var(--apple-text-light);
+  line-height: 1.55;
+  margin: 0;
+}
+
+.demo-step-connector {
+  display: flex;
+  align-items: center;
+  padding-top: 60px;
+  color: var(--apple-text-light);
+}
+
+/* ─── FORMAT CARDS ────────────────────────────────────────── */
+.demo-formats-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px;
+  margin-top: 60px;
+}
+
+.demo-format-card {
+  background: var(--apple-card-bg);
+  border: 1px solid var(--apple-card-border);
+  border-radius: 24px;
+  padding: 32px 20px;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.demo-format-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 48px rgba(0,0,0,0.06);
+}
+
+.demo-format-preview {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24px;
+  color: var(--apple-text-light);
+}
+
+.format-portrait svg { width: 36px; height: 52px; }
+.format-landscape svg { width: 52px; height: 36px; }
+.format-square svg { width: 44px; height: 44px; }
+.format-wide svg { width: 52px; height: 36px; }
+
+.demo-format-card h4 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--apple-text);
+  margin: 0 0 4px 0;
+}
+
+.demo-format-card p {
+  font-size: 14px;
+  color: var(--apple-text-light);
+  margin: 0;
+}
+
+/* ─── ECOSYSTEM FLOW ──────────────────────────────────────── */
+.demo-ecosystem-section {
+  position: relative;
+}
+
+/* Subtle colorful wash like iMac page */
+.demo-ecosystem-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; height: 2px;
+  background: linear-gradient(90deg, #ff3b30, #ff9f0a, #ffd60a, #30d158, #0071e3, #5e5ce6);
+  opacity: 0.4;
+  z-index: 0;
+}
+
+.demo-ecosystem-flow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-top: 60px;
+  flex-wrap: wrap;
+}
+
+.demo-eco-node {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+  padding: 32px 28px;
+  background: var(--apple-card-bg);
+  border: 1px solid var(--apple-card-border);
+  border-radius: 24px;
+  min-width: 160px;
+  transition: transform 0.3s ease;
+}
+
+.demo-eco-node:hover {
+  transform: translateY(-4px);
+}
+
+.demo-eco-active {
+  border-color: rgba(0, 113, 227, 0.4);
+  box-shadow: 0 12px 40px rgba(0,113,227,0.08);
+}
+
+.demo-eco-icon {
+  width: 60px;
+  height: 60px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.eco-studio { background: rgba(48,209,88,0.1); color: #30d158; }
+.eco-kode   { background: rgba(162,133,255,0.1); color: #a285ff; }
+.eco-demo   { background: rgba(0,113,227,0.1); color: #0071e3; }
+
+.demo-eco-node h4 {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--apple-text);
+  margin: 0;
+}
+
+.demo-eco-node p {
+  font-size: 14px;
+  color: var(--apple-text-light);
+  margin: 0;
+}
+
+.demo-eco-arrow {
+  color: var(--apple-text-light);
+  flex-shrink: 0;
+}
+
+/* ─── RESPONSIVE ──────────────────────────────────────────── */
+@media (max-width: 900px) {
+  .demo-bento-grid {
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+  }
+  .demo-bento-large,
+  .demo-bento-tall,
+  .demo-bento-wide {
+    grid-column: span 1;
+    grid-row: auto;
+    min-height: 320px;
+  }
+
+  .demo-formats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .demo-float-badge {
+    display: none;
+  }
+
+  .demo-steps {
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .demo-step-connector {
+    padding-top: 0;
+    transform: rotate(90deg);
+  }
+
+  .demo-ecosystem-flow {
+    flex-direction: column;
+  }
+
+  .demo-eco-arrow {
+    transform: rotate(90deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .demo-formats-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+  
+  .demo-iphone-frame {
+    width: 240px;
+  }
+}

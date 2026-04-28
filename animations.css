@@ -1,0 +1,62 @@
+/* ============================================================
+   KESEF STUDIO — ANIMATIONS
+   Staggered reveals, swipe transitions, form states
+   ============================================================ */
+
+/* ─── STAGGERED BENTO REVEALS ─────────────────────────────── */
+.reveal-card:nth-child(1) { transition-delay: 0s; }
+.reveal-card:nth-child(2) { transition-delay: 0.07s; }
+.reveal-card:nth-child(3) { transition-delay: 0.14s; }
+.reveal-card:nth-child(4) { transition-delay: 0.21s; }
+.reveal-card:nth-child(5) { transition-delay: 0.28s; }
+.reveal-card:nth-child(6) { transition-delay: 0.35s; }
+
+/* ─── SWIPE ANIMATIONS ────────────────────────────────────── */
+@keyframes swipe-exit-left {
+  from { transform: translateX(-50%) rotate(0deg); opacity: 1; }
+  to   { transform: translateX(calc(-50% - 300px)) rotate(-18deg); opacity: 0; }
+}
+@keyframes swipe-exit-right {
+  from { transform: translateX(-50%) rotate(0deg); opacity: 1; }
+  to   { transform: translateX(calc(-50% + 300px)) rotate(18deg); opacity: 0; }
+}
+
+.swiping-left  { animation: swipe-exit-left 0.35s ease forwards; }
+.swiping-right { animation: swipe-exit-right 0.35s ease forwards; }
+
+/* ─── FORM STATES ─────────────────────────────────────────── */
+@keyframes shake {
+  0%, 100% { transform: translateX(0); }
+  20%       { transform: translateX(-8px); }
+  40%       { transform: translateX(8px); }
+  60%       { transform: translateX(-5px); }
+  80%       { transform: translateX(5px); }
+}
+.form-shake { animation: shake 0.4s ease; }
+
+@keyframes pop-in {
+  0%   { transform: scale(0.85); opacity: 0; }
+  60%  { transform: scale(1.04); }
+  100% { transform: scale(1); opacity: 1; }
+}
+.success-pop { animation: pop-in 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+
+/* ─── CONFETTI ────────────────────────────────────────────── */
+.confetti-piece {
+  position: fixed; top: -10px;
+  width: 8px; height: 14px;
+  border-radius: 2px;
+  animation: confetti-fall linear forwards;
+  pointer-events: none; z-index: 9999;
+}
+@keyframes confetti-fall {
+  0%   { transform: translateY(0) rotate(0deg); opacity: 1; }
+  100% { transform: translateY(105vh) rotate(720deg); opacity: 0; }
+}
+
+/* ─── STEVE TYPING LOOP ───────────────────────────────────── */
+@keyframes appear-steve {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.steve-msg-new { animation: appear-steve 0.3s ease forwards; }
