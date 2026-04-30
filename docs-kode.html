@@ -72,7 +72,7 @@
         </tbody>
       </table>
       <div class="docs-callout">
-        <strong>Why Apple Silicon?</strong> Steve AI runs a 7-billion-parameter code model entirely on your Mac's Neural Engine and GPU. This requires the unified memory architecture available only on M-series chips.
+        <strong>Why Apple Silicon?</strong> Steve AI runs a proprietary code model entirely on your Mac's Neural Engine and GPU. This requires the unified memory architecture available only on M-series chips.
       </div>
 
       <h3>Installation</h3>
@@ -123,64 +123,64 @@
       </table>
 
       <h3>Source Control</h3>
-      <p>Built-in Git integration with branch display, changed file count, commit (<span class="docs-kbd">⌘⌥C</span>), push, pull, and per-file status tracking. All Git operations are routed through the secure ProcessRunner, preventing shell injection attacks.</p>
+      <p>Built-in Git integration with branch display, changed file count, commit (<span class="docs-kbd">⌘⌥C</span>), push, pull, and per-file status tracking. All Git operations are sandboxed through a secure execution layer, preventing shell injection attacks.</p>
     </div>
 
     <!-- ═══════════════════════════════════ STEVE AI ═══════════════════════════════════ -->
     <div class="ag-docs-section" id="steve">
       <h2>Steve AI</h2>
-      <p>Steve is the on-device AI coding engine running a custom-fine-tuned <strong>Qwen 2.5 Coder 7B</strong> model via Apple's <strong>MLX</strong> framework — entirely on your Mac's hardware.</p>
+      <p>Steve is the on-device AI coding engine running a proprietary, Apple-optimized code model — entirely on your Mac's hardware. No cloud, no API keys, no subscriptions.</p>
 
       <h3>What Steve Can Do</h3>
       <ul>
-        <li>Read your project structure and understand file relationships</li>
-        <li>Write complete, compilable Swift files with <code>// File:</code> headers</li>
+        <li>Read your entire project structure and understand file relationships</li>
+        <li>Write complete, compilable Swift files and apply them to your project</li>
         <li>Execute shell commands (builds, git, tests) and reason about the output</li>
         <li>Search the web when he needs up-to-date information</li>
         <li>Remember facts about you and your project across conversations</li>
-        <li>Retrieve relevant Apple documentation from a 1.6M-page local database</li>
+        <li>Retrieve relevant Apple documentation from a massive local knowledge base</li>
       </ul>
 
       <h3>Fast Mode</h3>
       <p>The default mode. Your message is enriched with project context, RAG documentation, memories, and skills. Steve streams a response with code blocks that can be auto-applied to your project with one click.</p>
 
       <h3>Plan Mode</h3>
-      <p>Toggle to Plan mode for complex, multi-step tasks. Steve analyzes your request, generates a structured plan (max 8 steps), presents it for your approval, then executes code-only output after you approve.</p>
+      <p>Toggle to Plan mode for complex, multi-step tasks. Steve analyzes your request, generates a structured plan, presents it for your approval, then executes code-only output after you approve.</p>
       <div class="docs-callout">
-        <strong>No repetition loops.</strong> Steve's plan is surgically removed from conversation history before execution, ensuring he writes code instead of re-explaining.
+        <strong>No repetition loops.</strong> Steve's proprietary orchestration ensures he moves forward with code generation instead of repeating himself.
       </div>
 
       <h3>Inline Editing — <span class="docs-kbd">⌘K</span></h3>
       <p>Press <span class="docs-kbd">⌘K</span> in the code editor to invoke Steve for inline modifications. Type an instruction like "add error handling" or "convert to async/await" — Steve receives the full file content plus your instruction and returns the modified file in-place.</p>
 
       <h3>Vision AI</h3>
-      <p>Drag and drop a UI mockup screenshot into the Steve chat panel. A local <strong>Phi-3 Vision 4-bit</strong> model analyzes the layout, colors, typography, and components — then generates matching SwiftUI code. The Vision model (~2.2 GB) is loaded on-demand and swapped with the code model to conserve memory.</p>
+      <p>Drag and drop a UI mockup screenshot into the Steve chat panel. A local Vision AI model analyzes the layout, colors, typography, and components — then generates matching SwiftUI code. The Vision model is loaded on-demand to conserve memory.</p>
 
       <h3>Web Research</h3>
-      <p>When Steve encounters a query requiring up-to-date information, he automatically searches DuckDuckGo, fetches top pages via a headless WKWebView, extracts text content, and injects results into his prompt. Fully sandboxed and Mac App Store compatible.</p>
+      <p>When Steve encounters a query requiring up-to-date information, he automatically searches the web, fetches and reads relevant pages, and incorporates the results into his response. Fully sandboxed and Mac App Store compatible.</p>
     </div>
 
     <!-- ═══════════════════════════════════ RAG SYSTEM ═══════════════════════════════════ -->
     <div class="ag-docs-section" id="rag">
       <h2>RAG System</h2>
-      <p>Retrieval-Augmented Generation is what makes a 7B model punch above its weight. Kesef Kode ships with a pre-built SQLite database containing <strong>1.6 million+ scraped Apple Developer documentation pages</strong>.</p>
+      <p>Retrieval-Augmented Generation is what makes Steve exceptionally accurate. Kesef Kode ships with a proprietary knowledge base containing <strong>over 1.6 million Apple Developer documentation pages</strong>.</p>
 
       <h3>How It Works</h3>
       <ol>
-        <li>When you ask Steve a question, the RAG service searches the documentation using <strong>FTS5 full-text search</strong> with <strong>BM25 ranking</strong></li>
-        <li><strong>Query expansion</strong> adds Apple developer synonyms (e.g., "navigation" → NavigationStack, NavigationLink, NavigationPath)</li>
-        <li>The top 3–5 most relevant document chunks are injected into Steve's prompt</li>
+        <li>When you ask Steve a question, the RAG engine searches the knowledge base for relevant documentation in real-time</li>
+        <li>Intelligent query understanding ensures the right SDK documentation is retrieved — even for shorthand or ambiguous terms</li>
+        <li>The most relevant documentation is provided to Steve as context</li>
         <li>Steve's response is grounded in real SDK documentation, not hallucinated API surfaces</li>
       </ol>
 
       <h3>Supported Frameworks</h3>
-      <p>SwiftUI, UIKit, AppKit, Combine, Core Data, SwiftData, RealityKit, WidgetKit, async/await concurrency, networking (URLSession), storage (FileManager, Keychain), and more — all with automatic query expansion.</p>
+      <p>SwiftUI, UIKit, AppKit, Combine, Core Data, SwiftData, RealityKit, WidgetKit, async/await concurrency, networking (URLSession), storage (FileManager, Keychain), and more.</p>
       <div class="docs-callout">
-        <strong>Zero extra RAM.</strong> The database uses SQLite memory-mapping. Searches take &lt;10ms on SSD.
+        <strong>Zero extra RAM.</strong> The knowledge base is optimized for minimal memory footprint. Searches are near-instant.
       </div>
 
       <h3>Memory System</h3>
-      <p>Steve remembers facts about you across conversations. When he learns something important — your coding style, project architecture, preferences — he emits a <code>[REMEMBER: ...]</code> marker that's automatically parsed, categorized, and saved to your Kesef Plus account via Supabase.</p>
+      <p>Steve remembers facts about you across conversations. When he learns something important — your coding style, project architecture, preferences — the memory is automatically extracted, categorized, and synced to your Kesef Plus account.</p>
       <table class="docs-table">
         <thead><tr><th>Category</th><th>Example</th></tr></thead>
         <tbody>
@@ -197,10 +197,10 @@
       <h2>Advanced Features</h2>
 
       <h3>MCP Servers</h3>
-      <p>Kesef Kode supports the <strong>Model Context Protocol</strong> (MCP) — an open standard for connecting AI systems with external tools. Add servers in <strong>Settings → MCP</strong> or configure via <code>~/.kesef-kode/mcp_config.json</code>. Steve can invoke MCP tools during conversation, and all requests have a 30-second timeout to prevent freezing.</p>
+      <p>Kesef Kode supports the <strong>Model Context Protocol</strong> (MCP) — an open standard for connecting AI systems with external tools. Add servers in <strong>Settings → MCP</strong> and Steve can invoke their tools directly during conversation.</p>
 
       <h3>Custom Skills</h3>
-      <p>Skills are markdown files that inject domain knowledge into Steve's prompt when triggered by keywords. Place <code>.md</code> files in <code>~/.kesef-kode/skills/</code> (global) or <code>{project}/.kesef/skills/</code> (workspace-specific) with optional YAML front-matter for triggers and descriptions.</p>
+      <p>Teach Steve domain-specific knowledge by creating custom skill files. Skills let you inject your own guidelines, code patterns, and project conventions into Steve's context — globally or per-workspace.</p>
 
       <h3>Simulator Manager</h3>
       <p>Queries <code>xcrun simctl</code> for all available Apple simulators. View, boot, install, and launch apps on any iOS, watchOS, tvOS, or visionOS simulator device.</p>
@@ -209,7 +209,7 @@
       <p>An integrated LLDB session for low-level debugging. Send commands directly (<code>breakpoint set</code>, <code>po</code>, <code>thread backtrace</code>) with live-streamed output.</p>
 
       <h3>Conversation Management</h3>
-      <p>Multiple conversation threads with save, load, and delete. Conversations are persisted to <code>~/.kesef-kode/conversations/</code> as JSON with full message history and original timestamps.</p>
+      <p>Multiple conversation threads with save, load, and delete. Full message history is preserved across sessions.</p>
     </div>
 
     <!-- ═══════════════════════════════════ SHORTCUTS ═══════════════════════════════════ -->
@@ -250,35 +250,13 @@
     <!-- ═══════════════════════════════════ ARCHITECTURE ═══════════════════════════════════ -->
     <div class="ag-docs-section" id="architecture">
       <h2>Architecture</h2>
-      <p>Kesef Kode is built as a native macOS application with a service-oriented architecture.</p>
-      <div class="docs-arch">┌─────────────────────────────────────────────┐
-│                 KesefKodeApp                │
-│              (SwiftUI + AppKit)              │
-├─────────────────────────────────────────────┤
-│                  AppState                   │
-│         (Central state management)          │
-├──────────┬──────────┬──────────┬────────────┤
-│  Editor  │ Terminal │  Steve   │  File Tree │
-│  Panel   │  Panel   │  Panel   │   Panel    │
-├──────────┴──────────┴──────────┴────────────┤
-│              SteveOrchestrator              │
-│       (Prompt building, tool routing)       │
-├──────┬───────┬───────┬────────┬─────────────┤
-│Steve │Vision │  RAG  │Memory  │  Web Agent  │
-│Engine│Engine │Service│Service │ (WKWebView) │
-├──────┴───────┴───────┴────────┴─────────────┤
-│ ModelManager │ MCPService │  SkillsService  │
-├──────────────┼────────────┼─────────────────┤
-│ProcessRunner │  LSPClient │   FileWatcher   │
-├──────────────┼────────────┼─────────────────┤
-│  GitService  │SimulatorMgr│  LLDBManager    │
-└──────────────┴────────────┴─────────────────┘</div>
-      <h3>Key Design Decisions</h3>
+      <p>Kesef Kode is built as a native macOS application with a proprietary service-oriented architecture designed for maximum performance and security.</p>
+      <h3>Key Design Principles</h3>
       <ul>
-        <li><strong>On-device only</strong> — all inference runs via Apple's MLX framework. Zero data leaves your Mac.</li>
-        <li><strong>Model swapping</strong> — only one model in memory at a time. Steve and Vision are swapped on demand with GPU cache cleared between swaps.</li>
-        <li><strong>Context window management</strong> — the prompt builder enforces a 12,000-character budget (~4K tokens) with priority-based truncation.</li>
-        <li><strong>Safety</strong> — all AI-initiated shell commands pass through ProcessRunner's blocklist. Code application has path traversal protection.</li>
+        <li><strong>100% on-device</strong> — all AI inference runs locally on Apple Silicon. Zero data leaves your Mac.</li>
+        <li><strong>Intelligent resource management</strong> — AI models are loaded and unloaded dynamically to keep memory usage efficient, even on 16 GB machines.</li>
+        <li><strong>Smart context assembly</strong> — Steve's proprietary prompt engine intelligently prioritizes your active file, project structure, and relevant documentation to maximize response quality.</li>
+        <li><strong>Defense-in-depth security</strong> — multiple safety layers protect against dangerous shell commands, path traversal, and resource leaks.</li>
       </ul>
     </div>
 
@@ -288,9 +266,9 @@
       <h3>On-Device Processing</h3>
       <p>All AI inference runs on your Mac's Apple Silicon. Your code, prompts, and project files never leave your device. No telemetry, no cloud processing, no third-party AI API calls.</p>
       <h3>Shell Execution Safety</h3>
-      <p>Every AI-initiated command passes through ProcessRunner's safety layer, blocking privilege escalation (<code>sudo</code>), destructive filesystem ops (<code>rm -rf /</code>), remote code execution (<code>curl | sh</code>), fork bombs, and disk wipe commands.</p>
-      <h3>Path Traversal Protection</h3>
-      <p>When Steve writes code to your project, filenames are sanitized — <code>..</code> sequences stripped, absolute paths rejected, and resolved paths verified to be within the project directory.</p>
+      <p>Every AI-initiated command passes through a multi-layer safety system that blocks privilege escalation, destructive filesystem operations, remote code execution, and other dangerous patterns.</p>
+      <h3>Sandbox Protection</h3>
+      <p>When Steve writes code to your project, all file operations are sandboxed within your project directory. Attempts to write outside the project boundary are blocked.</p>
     </div>
 
     <!-- ═══════════════════════════════════ FAQ ═══════════════════════════════════ -->
@@ -300,13 +278,7 @@
       <p>No. All AI inference runs locally. Internet is only used for: initial model download, web research (when Steve needs up-to-date info), optional memory sync via Kesef Plus account, and Git push/pull.</p>
 
       <h3>What models does Steve use?</h3>
-      <table class="docs-table">
-        <thead><tr><th>Model</th><th>Purpose</th><th>Size</th></tr></thead>
-        <tbody>
-          <tr><td>Steve v2 (Qwen 2.5 Coder 7B)</td><td>Code generation</td><td>~4 GB</td></tr>
-          <tr><td>Phi-3 Vision 4-bit</td><td>UI mockup analysis</td><td>~2.2 GB</td></tr>
-        </tbody>
-      </table>
+      <p>Steve uses proprietary, Apple Silicon-optimized AI models fine-tuned specifically for Apple platform development. A separate Vision AI model handles UI mockup analysis. Both are included with the app — no downloading or configuration needed.</p>
 
       <h3>How is Kesef Kode different from Cursor / Copilot?</h3>
       <table class="docs-table">
@@ -328,7 +300,7 @@
       <p>Custom model support is planned for a future release.</p>
 
       <h3>What is the context window size?</h3>
-      <p>Steve operates within an ~8K token context window. The prompt builder automatically manages a 12,000-character budget, prioritizing your active file and message while truncating lower-priority context to fit.</p>
+      <p>Steve's proprietary prompt engine dynamically manages context to fit within the model's capacity, intelligently prioritizing your active code and most relevant documentation.</p>
 
       <h3>How do I report a bug?</h3>
       <p>Use <strong>Help → Report a Bug</strong> in the menu bar, or <strong>Help → Send Feedback</strong> to open a GitHub issue with a pre-filled template.</p>
@@ -336,7 +308,7 @@
 
     <div style="text-align: center; padding: 48px 0 0; border-top: 1px solid rgba(255,255,255,0.06); margin-top: 48px;">
       <p class="ag-body" style="opacity: 0.5;">© 2026 Ilan Uzan / Kesef Plus. All rights reserved.</p>
-      <p class="ag-body" style="opacity: 0.4; font-size: 0.8rem;">Built with Steve AI — on-device, private, no subscriptions. Powered by Apple Silicon &amp; MLX.</p>
+      <p class="ag-body" style="opacity: 0.4; font-size: 0.8rem;">Built with Steve AI — on-device, private, no subscriptions. Powered by Apple Silicon.</p>
     </div>
   </main>
 
