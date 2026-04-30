@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Download — Kesef Plus</title>
   <meta name="description"
-    content="Download Kesef Studio, Kesef Kode, and Kesef Demo. System requirements and download links." />
+    content="Download Kesef Kode for macOS — the AI-powered IDE with on-device intelligence. Free, private, no subscriptions." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -38,6 +38,11 @@
 
     .ag-dl-card:hover {
       transform: translateY(-4px);
+    }
+
+    .ag-dl-card-featured {
+      border-color: rgba(0, 122, 255, 0.3);
+      box-shadow: 0 0 40px rgba(0, 122, 255, 0.08);
     }
 
     .ag-dl-title {
@@ -105,14 +110,88 @@
       margin-right: 10px;
       flex-shrink: 0;
     }
+
+    .ag-dl-meta {
+      display: flex;
+      gap: 16px;
+      justify-content: center;
+      margin-top: 14px;
+      font-size: 13px;
+      color: rgba(255, 255, 255, 0.4);
+      font-family: var(--font-mono, 'SF Mono', monospace);
+    }
+
+    .ag-dl-meta span {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* Install steps */
+    .ag-install-steps {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 24px;
+      margin: 60px 0;
+    }
+
+    @media(max-width: 700px) {
+      .ag-install-steps {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .ag-install-step {
+      text-align: center;
+      padding: 24px;
+    }
+
+    .ag-install-step-num {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: rgba(0, 122, 255, 0.15);
+      color: #007AFF;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 14px;
+      margin-bottom: 16px;
+    }
+
+    .ag-install-step h4 {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .ag-install-step p {
+      font-size: 14px;
+      color: rgba(255, 255, 255, 0.5);
+      line-height: 1.5;
+    }
+
+    .ag-loading-spinner {
+      display: inline-block;
+      width: 14px;
+      height: 14px;
+      border: 2px solid rgba(255, 255, 255, 0.2);
+      border-top-color: rgba(255, 255, 255, 0.6);
+      border-radius: 50%;
+      animation: dl-spin 0.6s linear infinite;
+    }
+
+    @keyframes dl-spin {
+      to { transform: rotate(360deg); }
+    }
   </style>
 </head>
 
 <body style="background: var(--ag-dark-1); color: #ffffff;">
 
-  <div id="glow-container">
-    <div id="glow-orb"></div>
-  </div>
+  <div id="glow-container"><div id="glow-orb"></div></div>
 
   <nav class="ag-nav">
     <a href="index.html" class="ag-nav-logo" style="display:flex; align-items:center;">
@@ -130,7 +209,6 @@
   </nav>
 
   <main>
-    <!-- Dark theme wrapper -->
     <div style="background: var(--ag-dark-1); width: 100%; min-height: 100vh; padding: 120px 24px 0; box-sizing: border-box;">
       <div class="ag-container" style="max-width: 1200px; margin: 0 auto;">
 
@@ -142,33 +220,38 @@
         <div class="ag-dl-grid" style="padding-top: 0;">
 
           <!-- Kesef Kode -->
-          <div class="ag-dl-card reveal">
+          <div class="ag-dl-card ag-dl-card-featured reveal">
             <div class="ag-badge ag-badge-dark"
-              style="margin-bottom: 20px; display: inline-block; width: fit-content; border: 1px solid rgba(255,255,255,0.1);">
-              macOS</div>
+              style="margin-bottom: 20px; display: inline-block; width: fit-content; border: 1px solid rgba(0,122,255,0.3); color: #007AFF;">
+              macOS · Available Now</div>
             <h3 class="ag-dl-title">Kesef Kode</h3>
-            <p class="ag-dl-desc">The agentic IDE that understands your entire Apple project context via local AI
-              inference.</p>
+            <p class="ag-dl-desc">The agentic IDE with on-device AI. Write, debug, and ship Apple apps with Steve AI — 
+              entirely on your Mac. No cloud, no subscriptions.</p>
 
             <div class="ag-dl-reqs">
               <span
                 style="font-family: var(--font-mono); text-transform: uppercase; font-size: 12px; letter-spacing: 0.05em; display: block; margin-bottom: 12px; color: rgba(255,255,255,0.5);">Requirements</span>
               <ul>
-                <li>macOS Tahoe or later</li>
+                <li>macOS Sequoia 15.0 or later</li>
                 <li>Apple Silicon (M1+) strictly required</li>
                 <li>Minimum 16GB Unified Memory*</li>
               </ul>
               <div style="font-size: 12px; margin-top: 16px; color: rgba(255,255,255,0.5); line-height: 1.4;">* 16GB RAM
-                is required to run Qwen2.5-Coder-7B (4-bit) and Phi3-Vision (4-bit) concurrently alongside Xcode.</div>
+                is required to run the code + vision models concurrently alongside Xcode.</div>
             </div>
 
-            <button class="ag-btn-apple" onclick="alert('Downloading Kesef Kode...')">
+            <a id="kode-download-btn" href="https://github.com/ilan-uzan/kesef-kode/releases/latest" class="ag-btn-apple">
               <svg viewBox="0 0 384 512" width="20" height="20" fill="currentColor">
                 <path
                   d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
               </svg>
-              Download for MacOS
-            </button>
+              <span id="kode-btn-text">Download for macOS</span>
+            </a>
+            <div id="kode-dl-meta" class="ag-dl-meta" style="display: none;">
+              <span id="kode-version"></span>
+              <span id="kode-size"></span>
+              <span>DMG · Universal</span>
+            </div>
           </div>
 
           <!-- Kesef Studio -->
@@ -188,7 +271,7 @@
               </ul>
             </div>
 
-            <button class="ag-btn-apple" onclick="alert('Opening TestFlight...')">
+            <button class="ag-btn-apple" disabled style="opacity: 0.5; cursor: not-allowed;">
               <svg viewBox="0 0 384 512" width="20" height="20" fill="currentColor">
                 <path
                   d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
@@ -214,7 +297,7 @@
               </ul>
             </div>
 
-            <button class="ag-btn-apple" onclick="alert('Opening App Store...')">
+            <button class="ag-btn-apple" disabled style="opacity: 0.5; cursor: not-allowed;">
               <svg viewBox="0 0 384 512" width="20" height="20" fill="currentColor">
                 <path
                   d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z" />
@@ -223,6 +306,25 @@
             </button>
           </div>
 
+        </div>
+
+        <!-- Install steps -->
+        <div class="ag-install-steps reveal">
+          <div class="ag-install-step">
+            <div class="ag-install-step-num">1</div>
+            <h4>Download</h4>
+            <p>Click "Download for macOS" above to get the DMG installer.</p>
+          </div>
+          <div class="ag-install-step">
+            <div class="ag-install-step-num">2</div>
+            <h4>Install</h4>
+            <p>Open the DMG and drag Kesef Kode into your Applications folder.</p>
+          </div>
+          <div class="ag-install-step">
+            <div class="ag-install-step-num">3</div>
+            <h4>Launch</h4>
+            <p>Open Kesef Kode — Steve AI loads the model on first run (~4GB, one-time).</p>
+          </div>
         </div>
 
         <footer class="ag-footer" style="margin-top: 100px; border-top: 1px solid rgba(255,255,255,0.1);">
@@ -261,6 +363,44 @@
   </main>
 
   <script src="antigravity-app.js?v=1.1" defer></script>
+  <script>
+    // Auto-fetch latest Kesef Kode release from GitHub
+    (async function fetchKodeRelease() {
+      try {
+        const resp = await fetch('https://api.github.com/repos/ilan-uzan/kesef-kode/releases/latest', {
+          headers: { 'Accept': 'application/vnd.github+json' }
+        });
+        if (!resp.ok) return;
+        const data = await resp.json();
+
+        const version = data.tag_name || '';
+        const dmg = (data.assets || []).find(a => a.name && a.name.toLowerCase().endsWith('.dmg'));
+
+        // Update download button to point directly to DMG
+        const btn = document.getElementById('kode-download-btn');
+        const btnText = document.getElementById('kode-btn-text');
+        if (dmg && btn) {
+          btn.href = dmg.browser_download_url;
+          btnText.textContent = 'Download for macOS';
+        }
+
+        // Show version + size metadata
+        const meta = document.getElementById('kode-dl-meta');
+        const versionEl = document.getElementById('kode-version');
+        const sizeEl = document.getElementById('kode-size');
+        if (meta) {
+          meta.style.display = 'flex';
+          if (versionEl) versionEl.textContent = version;
+          if (sizeEl && dmg) {
+            const mb = (dmg.size / (1024 * 1024)).toFixed(0);
+            sizeEl.textContent = mb + ' MB';
+          }
+        }
+      } catch (e) {
+        // Silently fail — fallback link to releases/latest still works
+      }
+    })();
+  </script>
 </body>
 
 </html>

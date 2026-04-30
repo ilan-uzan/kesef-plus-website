@@ -36,10 +36,11 @@
         <div class="ag-badge">macOS · Apple Silicon</div>
         <h1 class="ag-headline ag-shimmer-text">Kesef Kode.</h1>
         <h2 class="ag-subheadline mx-auto">The agentic IDE that understands your entire Apple project context.</h2>
-        <a href="download.html" class="ag-btn" style="margin-top: 32px; display: inline-flex; align-items: center; text-decoration: none;">
+        <a id="kode-hero-btn" href="https://github.com/ilan-uzan/kesef-kode/releases/latest" class="ag-btn" style="margin-top: 32px; display: inline-flex; align-items: center; text-decoration: none;">
           <svg viewBox="0 0 384 512" width="16" height="16" fill="currentColor" style="margin-right: 8px;"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
-          Download for macOS
+          <span id="kode-hero-text">Download for macOS</span>
         </a>
+        <div id="kode-hero-meta" style="display: none; margin-top: 14px; font-size: 13px; color: rgba(255,255,255,0.4); font-family: var(--font-mono, monospace); display: none; gap: 16px; justify-content: center;"></div>
         
         <div style="margin: 60px auto 0; text-align: center;">
           <img src="assets/kesef_kode_icon.png" alt="Kesef Kode App Icon" style="width: 100%; max-width: 280px; height: auto; border-radius: 20%; box-shadow: 0 20px 40px rgba(0,0,0,0.4);" />
@@ -141,14 +142,12 @@
 
           <!-- Early Access -->
           <div class="ag-early-access reveal">
-            <h3>Get early access.</h3>
-            <p>Kesef Kode is in private beta for macOS. Drop your email to be first in line.</p>
-            <form data-early-access="kode" class="ag-form-row">
-              <input type="email" class="ag-input" placeholder="you@email.com" required />
-              <button type="submit" class="ag-btn">Join Waitlist</button>
-            </form>
-            <div class="ag-form-success">You're on the list. We'll be in touch.</div>
-            <div class="ag-form-error"></div>
+            <h3>Ready to code.</h3>
+            <p>Kesef Kode is available now for macOS. Download the latest release and start building with Steve AI — on-device, private, no subscriptions.</p>
+            <a id="kode-cta-btn" href="https://github.com/ilan-uzan/kesef-kode/releases/latest" class="ag-btn" style="display: inline-flex; align-items: center; text-decoration: none; margin-top: 12px;">
+              <svg viewBox="0 0 384 512" width="14" height="14" fill="currentColor" style="margin-right: 8px;"><path d="M318.7 268.7c-.2-36.7 16.4-64.4 50-84.8-18.8-26.9-47.2-41.7-84.7-44.6-35.5-2.8-74.3 20.7-88.5 20.7-15 0-49.4-19.7-76.4-19.7C63.3 141.2 4 184.8 4 273.5q0 39.3 14.4 81.2c12.8 36.7 59 126.7 107.2 125.2 25.2-.6 43-17.9 75.8-17.9 31.8 0 48.3 17.9 76.4 17.9 48.6-.7 90.4-82.5 102.6-119.3-65.2-30.7-61.7-90-61.7-91.9zm-56.6-164.2c27.3-32.4 24.8-61.9 24-72.5-24.1 1.4-52 16.4-67.9 34.9-17.5 19.8-27.8 44.3-25.6 71.9 26.1 2 49.9-11.4 69.5-34.3z"/></svg>
+              <span id="kode-cta-text">Download for macOS</span>
+            </a>
           </div>
 
           <!-- Resources -->
@@ -200,5 +199,41 @@
   </main>
 
   <script src="antigravity-app.js?v=1.1" defer></script>
+  <script>
+    // Auto-fetch latest Kesef Kode release from GitHub
+    (async function fetchKodeRelease() {
+      try {
+        const resp = await fetch('https://api.github.com/repos/ilan-uzan/kesef-kode/releases/latest', {
+          headers: { 'Accept': 'application/vnd.github+json' }
+        });
+        if (!resp.ok) return;
+        const data = await resp.json();
+        const version = data.tag_name || '';
+        const dmg = (data.assets || []).find(a => a.name && a.name.toLowerCase().endsWith('.dmg'));
+        if (!dmg) return;
+
+        // Point all download buttons directly to the DMG file
+        const directUrl = dmg.browser_download_url;
+        ['kode-hero-btn', 'kode-cta-btn'].forEach(id => {
+          const el = document.getElementById(id);
+          if (el) el.href = directUrl;
+        });
+
+        // Show version metadata under hero
+        const meta = document.getElementById('kode-hero-meta');
+        if (meta) {
+          const mb = (dmg.size / (1024 * 1024)).toFixed(0);
+          meta.style.display = 'flex';
+          meta.innerHTML = '<span>' + version + '</span><span>' + mb + ' MB</span><span>DMG · Apple Silicon</span>';
+        }
+
+        // Update button text with version
+        const heroText = document.getElementById('kode-hero-text');
+        if (heroText) heroText.textContent = 'Download ' + version + ' for macOS';
+        const ctaText = document.getElementById('kode-cta-text');
+        if (ctaText) ctaText.textContent = 'Download ' + version + ' for macOS';
+      } catch (e) { /* fallback: buttons still link to releases/latest */ }
+    })();
+  </script>
 </body>
 </html>
