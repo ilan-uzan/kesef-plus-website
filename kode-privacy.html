@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kesef Kode Privacy — Zero-Telemetry Guarantee · Kesef Plus</title>
+  <meta name="description" content="Kesef Kode Zero-Telemetry Privacy Guarantee. Your source code never leaves your machine. Qwen 3.5 runs 100% locally via MLX on Apple Silicon." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="antigravity.css?v=1.1" />
+  <style>
+    .kode-policy-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(52, 199, 89, 0.12);
+      border: 1px solid rgba(52, 199, 89, 0.25);
+      color: #34c759;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .kode-policy-badge::before {
+      content: "🛡️";
+    }
+    .kode-guarantee-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin: 24px 0;
+    }
+    @media (max-width: 600px) {
+      .kode-guarantee-grid { grid-template-columns: 1fr; }
+    }
+    .kode-guarantee-card {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 20px;
+    }
+    .kode-guarantee-card h4 {
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+    .kode-guarantee-card p {
+      font-size: 13px !important;
+      color: var(--ag-text-secondary);
+      margin-bottom: 0 !important;
+      line-height: 1.6 !important;
+    }
+    .kode-network-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 16px 0 24px;
+      font-size: 13px;
+    }
+    .kode-network-table th, .kode-network-table td {
+      text-align: left;
+      padding: 10px 14px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    }
+    .kode-network-table th {
+      background: rgba(255, 255, 255, 0.04);
+      font-weight: 600;
+      color: #fff;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.03em;
+    }
+    .kode-network-table td {
+      color: var(--ag-text-secondary);
+    }
+    .kode-network-table code {
+      font-size: 12px;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-family: 'SF Mono', 'Menlo', monospace;
+    }
+    .kode-callout {
+      background: rgba(52, 199, 89, 0.06);
+      border-left: 3px solid #34c759;
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 24px 0;
+    }
+    .kode-callout p {
+      margin-bottom: 0 !important;
+      font-size: 14px !important;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="ag-nav">
+    <a href="index.html" class="ag-nav-logo" style="display:flex; align-items:center;">
+      <img src="assets/k.svg" alt="Kesef Plus" class="ag-logo-img" />
+    </a>
+    <button class="ag-mobile-menu-btn">☰</button>
+    <ul class="ag-nav-links">
+      <li><a href="studio.html">Studio</a></li>
+      <li><a href="kode.html">Kode</a></li>
+      <li><a href="demo.html">Demo</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="download.html" class="ag-nav-pill">Download</a></li>
+    </ul>
+  </nav>
+
+  <main class="ag-legal-content" style="padding-top: 120px;">
+    <div class="kode-policy-badge">Zero-Telemetry Verified</div>
+    <h1>Kesef Kode Privacy Policy</h1>
+    <p class="ag-legal-date">Effective Date: May 10, 2026 · Applies to: Kesef Kode for macOS</p>
+
+    <p>Kesef Kode is a <strong>local-first AI IDE</strong>. This page documents our strict privacy architecture — what stays on your machine, what doesn't, and why.</p>
+
+    <h2>1. On-Device AI Architecture</h2>
+    <p>The AI coding engine ("Steve") runs the <strong>Qwen 3.5 Coder</strong> language model locally on your Mac via <a href="https://github.com/ml-explore/mlx-swift" target="_blank" rel="noopener">Apple MLX</a>. All inference, code generation, code analysis, and prompt processing happens <strong>entirely on your Apple Silicon GPU and Neural Engine</strong>.</p>
+
+    <div class="kode-callout">
+      <p><strong>No tokens are streamed to, processed by, or stored on any remote server.</strong> Your source code is never uploaded for AI processing.</p>
+    </div>
+
+    <h2>2. What Never Leaves Your Machine</h2>
+    <div class="kode-guarantee-grid">
+      <div class="kode-guarantee-card">
+        <h4>📁 Source Code & Projects</h4>
+        <p>All file reads, writes, AST analysis, and build operations are performed locally. Your project files are never transmitted.</p>
+      </div>
+      <div class="kode-guarantee-card">
+        <h4>🔑 API Keys & Secrets</h4>
+        <p>Tokens, .env files, and credentials are processed in local memory only. Never sent to any server.</p>
+      </div>
+      <div class="kode-guarantee-card">
+        <h4>💬 AI Conversations</h4>
+        <p>Chat history with Steve is stored on-device. Cloud sync is optional and user-initiated via your Kesef Plus account.</p>
+      </div>
+      <div class="kode-guarantee-card">
+        <h4>🧠 Model Weights & Cache</h4>
+        <p>Downloaded model weights (~5.5 GB) are stored in your local HuggingFace cache. KV cache lives in RAM only.</p>
+      </div>
+    </div>
+
+    <h2>3. Strictly Limited Network Access</h2>
+    <p>Kesef Kode makes network requests <strong>only</strong> to the following destinations, and <strong>only</strong> when explicitly triggered:</p>
+    <table class="kode-network-table">
+      <thead>
+        <tr><th>Destination</th><th>Purpose</th><th>When</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><code>huggingface.co</code></td><td>One-time model weight download (~5.5 GB)</td><td>First launch / update</td></tr>
+        <tr><td><code>developer.apple.com</code></td><td>Browser Agent API documentation research</td><td>On demand</td></tr>
+        <tr><td><code>stackoverflow.com</code></td><td>Browser Agent coding research fallback</td><td>On demand</td></tr>
+        <tr><td><code>duckduckgo.com</code></td><td>Browser Agent web search</td><td>On demand</td></tr>
+        <tr><td><code>kesefplus.app</code></td><td>Sparkle auto-update checks & downloads</td><td>Periodic</td></tr>
+        <tr><td><code>supabase.co</code></td><td>Optional account authentication & memory sync</td><td>If signed in</td></tr>
+      </tbody>
+    </table>
+
+    <div class="kode-callout">
+      <p>❌ <strong>No analytics SDKs · No tracking pixels · No crash telemetry to third parties.</strong></p>
+    </div>
+
+    <h2>4. Optional Account Data</h2>
+    <p>If you sign in via Apple or Google, we receive your email, display name, and a unique identifier. We do <strong>not</strong> receive your password. Account data is stored on Supabase with Row-Level Security (RLS).</p>
+
+    <h2>5. Data Footprint</h2>
+    <p>The Qwen 3.5 model requires approximately <strong>5.5 GB</strong> of disk space, cached at:</p>
+    <p><code>~/.cache/huggingface/hub/models--mlx-community--Qwen2.5-Coder-7B-Instruct-4bit/</code></p>
+    <p>You can delete this directory at any time to reclaim space. Steve will re-download on next launch. See the <a href="kode-liability.html">Data Management</a> page or the in-app preferences for full uninstall instructions.</p>
+
+    <h2>6. Your Rights</h2>
+    <p>You have the right to access, correct, delete, and export your personal data. Contact <a href="mailto:ilan@kesefplus.app">ilan@kesefplus.app</a>. We respond within 30 days.</p>
+
+    <h2>7. Contact</h2>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:ilan@kesefplus.app">ilan@kesefplus.app</a></li>
+      <li><strong>Website:</strong> <a href="https://kesefplus.app">kesefplus.app</a></li>
+    </ul>
+  </main>
+
+  <footer class="ag-legal-footer">
+    <p>© 2026 Kesef Plus. All rights reserved. <a href="terms-of-service.html">Terms of Service</a> · <a href="privacy-policy.html">Privacy Policy</a> · <a href="kode-privacy.html">Kode Privacy</a> · <a href="kode-liability.html">Kode Liability</a></p>
+  </footer>
+
+</body>
+</html>

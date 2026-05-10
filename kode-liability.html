@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kesef Kode Liability — Generative Code Disclaimer · Kesef Plus</title>
+  <meta name="description" content="Kesef Kode Generative Code Liability Clause. Steve AI is an advisory tool. You review and approve all code diffs." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="antigravity.css?v=1.1" />
+  <style>
+    .kode-liability-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(255, 159, 10, 0.12);
+      border: 1px solid rgba(255, 159, 10, 0.25);
+      color: #ff9f0a;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+    }
+    .kode-liability-badge::before {
+      content: "⚖️";
+    }
+    .kode-step-list {
+      counter-reset: liability-step;
+      list-style: none;
+      padding: 0;
+      margin: 24px 0;
+    }
+    .kode-step-list li {
+      counter-increment: liability-step;
+      display: flex;
+      align-items: flex-start;
+      gap: 14px;
+      padding: 16px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .kode-step-list li:last-child {
+      border-bottom: none;
+    }
+    .kode-step-list li::before {
+      content: counter(liability-step);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 28px;
+      height: 28px;
+      background: linear-gradient(135deg, #ff9f0a, #ff6b35);
+      color: #fff;
+      font-size: 13px;
+      font-weight: 700;
+      border-radius: 50%;
+      margin-top: 2px;
+    }
+    .kode-step-list li strong {
+      color: #fff;
+      display: block;
+      margin-bottom: 4px;
+    }
+    .kode-warning-box {
+      background: rgba(255, 69, 58, 0.06);
+      border-left: 3px solid #ff453a;
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 24px 0;
+      font-size: 14px;
+    }
+    .kode-safe-box {
+      background: rgba(52, 199, 89, 0.06);
+      border-left: 3px solid #34c759;
+      padding: 16px 20px;
+      border-radius: 0 8px 8px 0;
+      margin: 24px 0;
+      font-size: 14px;
+    }
+    .kode-disclaimer-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin: 24px 0;
+    }
+    @media (max-width: 600px) {
+      .kode-disclaimer-grid { grid-template-columns: 1fr; }
+    }
+    .kode-disclaimer-item {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 10px;
+      padding: 16px;
+    }
+    .kode-disclaimer-item h4 {
+      font-size: 13px;
+      font-weight: 600;
+      color: #ff9f0a;
+      margin-bottom: 6px;
+    }
+    .kode-disclaimer-item p {
+      font-size: 13px !important;
+      margin-bottom: 0 !important;
+      line-height: 1.6 !important;
+    }
+    .kode-data-section {
+      background: rgba(255, 255, 255, 0.03);
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      border-radius: 12px;
+      padding: 24px;
+      margin: 32px 0;
+    }
+    .kode-data-section h3 {
+      font-size: 18px !important;
+      margin-top: 0 !important;
+      margin-bottom: 16px !important;
+    }
+    .kode-data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .kode-data-table th, .kode-data-table td {
+      text-align: left;
+      padding: 8px 12px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    }
+    .kode-data-table th {
+      font-weight: 600;
+      font-size: 11px;
+      text-transform: uppercase;
+      color: var(--ag-text-secondary);
+      letter-spacing: 0.04em;
+    }
+    .kode-data-table code {
+      font-size: 11px;
+      background: rgba(255, 255, 255, 0.06);
+      padding: 2px 6px;
+      border-radius: 3px;
+      font-family: 'SF Mono', 'Menlo', monospace;
+    }
+    .kode-uninstall-code {
+      background: rgba(255, 255, 255, 0.04);
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      border-radius: 8px;
+      padding: 16px;
+      font-family: 'SF Mono', 'Menlo', monospace;
+      font-size: 12px;
+      line-height: 1.8;
+      color: var(--ag-text-secondary);
+      overflow-x: auto;
+      margin: 12px 0;
+    }
+    .kode-licenses-list {
+      list-style: none;
+      padding: 0;
+      margin: 16px 0;
+    }
+    .kode-licenses-list li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+      font-size: 14px;
+    }
+    .kode-licenses-list li:last-child { border-bottom: none; }
+    .kode-license-tag {
+      font-size: 11px;
+      font-weight: 600;
+      padding: 2px 8px;
+      border-radius: 10px;
+      background: rgba(0, 122, 255, 0.12);
+      color: #0a84ff;
+    }
+  </style>
+</head>
+<body>
+
+  <nav class="ag-nav">
+    <a href="index.html" class="ag-nav-logo" style="display:flex; align-items:center;">
+      <img src="assets/k.svg" alt="Kesef Plus" class="ag-logo-img" />
+    </a>
+    <button class="ag-mobile-menu-btn">☰</button>
+    <ul class="ag-nav-links">
+      <li><a href="studio.html">Studio</a></li>
+      <li><a href="kode.html">Kode</a></li>
+      <li><a href="demo.html">Demo</a></li>
+      <li><a href="feedback.html">Feedback</a></li>
+      <li><a href="download.html" class="ag-nav-pill">Download</a></li>
+    </ul>
+  </nav>
+
+  <main class="ag-legal-content" style="padding-top: 120px;">
+    <div class="kode-liability-badge">Generative Code Disclaimer</div>
+    <h1>Kesef Kode Liability & Licensing</h1>
+    <p class="ag-legal-date">Effective Date: May 10, 2026 · Applies to: Kesef Kode for macOS</p>
+
+    <p>This page details your responsibilities when using AI-generated code in Kesef Kode, our third-party license acknowledgments, and data management instructions.</p>
+
+    <!-- ═══ SECTION: GENERATIVE LIABILITY ═══ -->
+    <h2>1. Generative Code Liability</h2>
+    <p>Kesef Kode's AI engine ("Steve") is an <strong>advisory tool</strong>. All code generated, suggested, or modified by Steve is provided for informational and assistive purposes only.</p>
+
+    <div class="kode-warning-box">
+      <p><strong>Approving a diff constitutes your acceptance and full responsibility for those changes.</strong></p>
+    </div>
+
+    <h3>Your Responsibilities</h3>
+    <ol class="kode-step-list">
+      <li><strong>Review Every Diff</strong> All AI-generated code passes through a diff review panel. You have full visibility and veto power over every change before it touches disk.</li>
+      <li><strong>Test Before Deploying</strong> Run your test suite after every agent session. AI-generated code may contain logic errors, performance issues, or edge cases.</li>
+      <li><strong>Audit for Security</strong> AI-generated code may inadvertently introduce vulnerabilities. Always perform security review before shipping.</li>
+      <li><strong>Use Version Control</strong> Commit to Git before running the Build Agent. Use the built-in rollback feature for immediate reversal.</li>
+    </ol>
+
+    <h3>What We Disclaim</h3>
+    <div class="kode-disclaimer-grid">
+      <div class="kode-disclaimer-item">
+        <h4>Data Loss & Corruption</h4>
+        <p>Steve writes files at your approval. Uncommitted changes may be overwritten. Use Git.</p>
+      </div>
+      <div class="kode-disclaimer-item">
+        <h4>Security Vulnerabilities</h4>
+        <p>AI-generated code may contain exploitable patterns. Audit all changes before deployment.</p>
+      </div>
+      <div class="kode-disclaimer-item">
+        <h4>Build & Runtime Failures</h4>
+        <p>Generated code may fail to compile or crash at runtime. The build agent attempts auto-fixes but success is not guaranteed.</p>
+      </div>
+      <div class="kode-disclaimer-item">
+        <h4>App Store Rejection</h4>
+        <p>AI-generated UI or architecture may not meet Apple's review guidelines. Human review is required.</p>
+      </div>
+    </div>
+
+    <div class="kode-safe-box">
+      <p><strong>Recommended:</strong> Always commit to Git → run agent → review diffs → run tests → then deploy.</p>
+    </div>
+
+    <!-- ═══ SECTION: THIRD-PARTY LICENSES ═══ -->
+    <h2>2. Third-Party Open Source Licenses</h2>
+    <p>Kesef Kode is built with the following open-source components:</p>
+
+    <ul class="kode-licenses-list">
+      <li><span><a href="https://github.com/ml-explore/mlx-swift" target="_blank" rel="noopener">mlx-swift</a> — Local LLM inference on Apple Silicon</span> <span class="kode-license-tag">MIT</span></li>
+      <li><span><a href="https://github.com/apple/swift-syntax" target="_blank" rel="noopener">swift-syntax</a> — AST pre-validation via SwiftParser</span> <span class="kode-license-tag">Apache 2.0</span></li>
+      <li><span><a href="https://github.com/huggingface/swift-transformers" target="_blank" rel="noopener">swift-transformers</a> — Tokenizer & HuggingFace Hub loading</span> <span class="kode-license-tag">Apache 2.0</span></li>
+      <li><span><a href="https://github.com/anthropics/playwright-mcp" target="_blank" rel="noopener">Playwright MCP</a> — Browser automation for Web Research</span> <span class="kode-license-tag">MIT</span></li>
+      <li><span><a href="https://github.com/sparkle-project/Sparkle" target="_blank" rel="noopener">Sparkle</a> — macOS auto-update framework</span> <span class="kode-license-tag">MIT</span></li>
+    </ul>
+
+    <h3>AI Model License</h3>
+    <p>The on-device language model is <strong>Qwen 3.5 Coder 7B</strong> (4-bit quantized) by Alibaba Cloud's Tongyi Qianwen team. Used under the <a href="https://huggingface.co/Qwen/Qwen2.5-Coder-7B-Instruct/blob/main/LICENSE" target="_blank" rel="noopener">Tongyi Qianwen License Agreement</a>. Weights are downloaded from HuggingFace Hub and cached locally. Kesef Plus does not redistribute or fine-tune the base model.</p>
+
+    <!-- ═══ SECTION: DATA MANAGEMENT ═══ -->
+    <div class="kode-data-section">
+      <h3>3. Data Footprint & Uninstall</h3>
+      <table class="kode-data-table">
+        <thead>
+          <tr><th>Component</th><th>Size</th><th>Location</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Kesef Kode app</td><td>~50 MB</td><td><code>/Applications/Kesef Kode.app</code></td></tr>
+          <tr><td>Qwen 3.5 model weights</td><td><strong>~5.5 GB</strong></td><td><code>~/.cache/huggingface/hub/</code></td></tr>
+          <tr><td>RAG index (Apple Docs)</td><td>~200 MB</td><td><code>~/Library/Application Support/Kesef Kode/</code></td></tr>
+          <tr><td>Preferences</td><td>< 1 MB</td><td><code>~/Library/Preferences/</code></td></tr>
+        </tbody>
+      </table>
+
+      <h4 style="margin-top: 20px;">Complete Uninstall Commands</h4>
+      <div class="kode-uninstall-code">
+rm -rf /Applications/Kesef\ Kode.app<br>
+rm -rf ~/.cache/huggingface/hub/models--mlx-community--Qwen2.5-Coder-7B-Instruct-4bit<br>
+rm -rf ~/Library/Application\ Support/Kesef\ Kode<br>
+defaults delete app.kesefplus.kode<br>
+rm -rf ~/.kesef-kode
+      </div>
+      <p>Your source code projects are <strong>never</strong> stored inside application data directories and will not be affected.</p>
+    </div>
+
+    <h2>4. Warranty Disclaimer</h2>
+    <p>THE SOFTWARE IS PROVIDED "AS IS" AND "AS AVAILABLE," WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED. TO THE MAXIMUM EXTENT PERMITTED BY LAW, KESEF PLUS SHALL NOT BE LIABLE FOR INDIRECT, INCIDENTAL, SPECIAL, OR CONSEQUENTIAL DAMAGES.</p>
+
+    <h2>5. Contact</h2>
+    <ul>
+      <li><strong>Email:</strong> <a href="mailto:ilan@kesefplus.app">ilan@kesefplus.app</a></li>
+      <li><strong>Website:</strong> <a href="https://kesefplus.app">kesefplus.app</a></li>
+      <li><strong>GitHub:</strong> <a href="https://github.com/ilan-uzan/kesef-kode" target="_blank" rel="noopener">github.com/ilan-uzan/kesef-kode</a></li>
+    </ul>
+  </main>
+
+  <footer class="ag-legal-footer">
+    <p>© 2026 Kesef Plus. All rights reserved. <a href="terms-of-service.html">Terms of Service</a> · <a href="privacy-policy.html">Privacy Policy</a> · <a href="kode-privacy.html">Kode Privacy</a> · <a href="kode-liability.html">Kode Liability</a></p>
+  </footer>
+
+</body>
+</html>
